@@ -8,8 +8,15 @@ app = Flask(__name__)
 
 @app.route("/get-article")
 def get_article():
+    movie_data = {
+        "url": article[0][11],
+        "title": article[0][12],
+        "text": article[0][13],
+        "lang": article[0][14],
+        "total_events": article[0][15]
+    }
     return jsonify({
-        "data": all_articles[0],
+        "data": movie_data,
         "status": "success"
     })
 
@@ -39,7 +46,8 @@ def popular_articles():
             "url": article[0],
             "title": article[1],
             "text": article[2],
-            "lang": article[3]
+            "lang": article[3],
+            "total_events": article[4]
         }
         article_data.append(_d)
     return jsonify({
@@ -63,7 +71,8 @@ def recommended_articles():
             "url": recommended[0],
             "title": recommended[1],
             "text": recommended[2],
-            "lang": recommended[3]
+            "lang": recommended[3],
+            "total_events": recommended[4]
         }
         article_data.append(_d)
     return jsonify({
