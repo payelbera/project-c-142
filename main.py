@@ -9,11 +9,11 @@ app = Flask(__name__)
 @app.route("/get-article")
 def get_article():
     movie_data = {
-        "url": article[0][11],
-        "title": article[0][12],
-        "text": article[0][13],
-        "lang": article[0][14],
-        "total_events": article[0][15]
+        "url": all_articles[0][11],
+        "title": all_articles[0][12],
+        "text": all_articles[0][13],
+        "lang": all_articles[0][14],
+        "total_events": all_articles[0][15]
     }
     return jsonify({
         "data": movie_data,
